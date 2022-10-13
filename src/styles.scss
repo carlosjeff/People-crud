@@ -1,4 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.button{
+  padding: .8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  font-size: .8rem;
+  font-weight: 800;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, box-shadow 0.5s;
+}
+
+.button-green{
+  background-color: #22c55e;
+  color: #FCFCFC;
+}
+
+.button-green:hover{
+  cursor: pointer;
+  background-color: #16A34A;
+}
+
+.button-green:active{
+  background-color: #15803D;
+}
+
+.button-green:focus{
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #88eaac;
+}

@@ -1,0 +1,14 @@
+.people{
+  margin: 1em 10em;
+}
+
+.people__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+.header__filter{
+  width: 100%;
+}
