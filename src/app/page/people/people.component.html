@@ -1,7 +1,13 @@
 <section class="people">
 
   <div class="people__header">
-    <app-input class="header__filter" [formControl]="filter" id="filter"></app-input>
+    <app-input class="header__filter" [formControl]="filter" placeholder="Pesquisar" id="filter"></app-input>
     <button class="button button-green">Adicionar <mat-icon>add</mat-icon></button>
   </div>
+
+  <div class="people__list">
+    <app-people-list [filter]="filter"></app-people-list>
+  </div>
 </section>
+
+
