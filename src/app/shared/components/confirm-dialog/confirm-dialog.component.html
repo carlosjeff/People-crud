@@ -1,0 +1,13 @@
+<div class="confirm__header">
+  <h2 mat-dialog-title class="header__title"> Delete </h2>
+  <button class="button button-icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content class="confirm__content">
+  <p>Você tem certeza que deseja excluir?</p>
+</div>
+<div mat-dialog-actions class="confirm__action">
+  <button class="button button--red" [mat-dialog-close]="true"> <mat-icon class="icon">delete</mat-icon>Deletar </button>
+  <button class="button" mat-dialog-close> <mat-icon class="icon">close</mat-icon>Cancelar </button>
+</div>

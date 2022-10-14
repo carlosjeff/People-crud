@@ -49,7 +49,11 @@ export class PeopleListComponent implements OnInit  {
   }
 
   public delete(id: number): void{
-
+    this.peopleService.confirmDialog().subscribe(result => {
+      if(result){
+        this.peopleService.delete(id);
+      }
+    })
   }
 
 }

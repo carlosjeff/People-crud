@@ -1,3 +1,4 @@
+import { ConfirmDialogComponent } from './../../shared/components/confirm-dialog/confirm-dialog.component';
 import { People } from './../../shared/models/people.model';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { DataService } from './../../shared/services/data.service';
@@ -38,12 +39,30 @@ export class PeopleService {
     })
   }
 
+  public delete(id: number): void{
+    this.dataService.delete('pessoa',id).subscribe(() => {
+      this.getAll();
+    })
+  }
+
   public openDialog(data?: People): Observable<People | null>{
     const dialogRef = this.dialog.open(PeopleFormComponent, {
       data: data,
+      minWidth: '500px',
+      autoFocus: 'input'
+    });
+
+    return dialogRef.afterClosed();
+  }
+
+
+  public confirmDialog(): Observable<boolean>{
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       minWidth: '500px'
     });
 
     return dialogRef.afterClosed();
+
   }
 }

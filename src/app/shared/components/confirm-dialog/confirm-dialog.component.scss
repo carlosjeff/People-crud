@@ -1,0 +1,17 @@
+.confirm__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title{
+  font-size: 1.2rem;
+}
+
+.confirm__action{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+}

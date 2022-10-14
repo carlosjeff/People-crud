@@ -1,3 +1,4 @@
+import { ConfirmDialogModule } from './../../shared/components/confirm-dialog/confirm-dialog.module';
 import { PeopleService } from './people.service';
 import { InputModule } from './../../shared/components/input/input.module';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -29,7 +30,8 @@ registerLocaleData(localePt, 'pt');
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     PeopleService,

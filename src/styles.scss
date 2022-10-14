@@ -78,7 +78,26 @@ body {
   }
 }
 
-.button--icon{
+.button--red{
+  background-color: #EF4444;
+  border: 1px solid #EF4444;
+  color: #FCFCFC;
+
+  &:hover{
+      background-color: #DC2626;
+  }
+
+  &:active{
+    background-color: #B91C1C;
+    border-color:#B91C1C;
+  }
+
+  &:focus{
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #f7a2a2;
+  }
+}
+
+.button-icon{
   background-color: transparent;
   border-radius: 50%;
   border: none;
@@ -88,7 +107,16 @@ body {
   width: 40px;
 }
 
-.button__icon{
+.button-icon--blue{
+  color: #3B82F6;
+}
+
+.button-icon--red{
+  color: #EF4444;
+}
+
+
+.icon{
   font-size: 1.3rem;
   display: flex !important;
   align-items: center;

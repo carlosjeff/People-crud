@@ -35,6 +35,6 @@ export class DataService {
   }
 
   public delete(coll: string,id: number): Observable<string>{
-    return this.http.delete<string>(`${this.url}/${coll}/${id}`);
+    return this.http.delete(`${this.url}/${coll}/${id}`,{responseType: 'text'});
   }
 }
