@@ -15,7 +15,7 @@ export class PeopleListComponent implements OnInit  {
 
   @Input() filter!: FormControl;
 
-  displayedColumns: string[] = ['id','name','email','birthDate'];
+  displayedColumns: string[] = ['id','name','email','birthDate','actions'];
   dataSource!: MatTableDataSource<People>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
@@ -24,7 +24,7 @@ export class PeopleListComponent implements OnInit  {
   constructor(private readonly peopleService: PeopleService) { }
 
   ngOnInit(): void {
-    this.peopleService.getAll().subscribe(data =>{
+    this.peopleService.people.subscribe(data =>{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -37,6 +37,19 @@ export class PeopleListComponent implements OnInit  {
         this.dataSource.paginator.firstPage();
       }
     })
+  }
+
+
+  public edit(people: People): void{
+    this.peopleService.openDialog(people).subscribe(result => {
+      if(result){
+        this.peopleService.update(result);
+      }
+    })
+  }
+
+  public delete(id: number): void{
+
   }
 
 }

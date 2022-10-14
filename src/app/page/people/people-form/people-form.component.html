@@ -1,0 +1,22 @@
+<div class="people-form">
+  <div class="people-form__header">
+    <h2 mat-dialog-title class="header__title"> {{ data ? 'Editar' : 'Adicionar' }} Pessoa</h2>
+    <button class="button button--icon" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content class="people-form__content">
+    <form class="content__form" [formGroup]="peopleForm">
+      <app-input class="content__input" formControlName="name" id="name"
+        labelName="Nome" placeholder="Nome" autofocus></app-input>
+      <app-input class="content__input" formControlName="email" id="email" labelName="Email" placeholder="Email"></app-input>
+      <app-input class="content__input" formControlName="birthDate" id="date"
+        labelName="Data de Nascimento" placeholder="Data de Nacimento"
+        type="date"></app-input>
+    </form>
+  </div>
+  <div mat-dialog-actions class="people-form__action">
+    <button class="button" mat-dialog-close> <mat-icon class="button__icon">close</mat-icon>Cancelar </button>
+    <button class="button button--green" (click)="save()"> <mat-icon class="button__icon">done</mat-icon>Salvar </button>
+  </div>
+</div>

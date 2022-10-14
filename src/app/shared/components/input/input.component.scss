@@ -7,8 +7,7 @@
   padding: 1em;
   box-sizing: border-box;
   border-radius: 6px;
-  border: 1px solid #78909c;
-  background-color: #eeeeee;
+  border: 1px solid #ced4da;
   transition: background-color 0.5s, color 0.5s, border-color 0.5s, box-shadow 0.5s;
   color: #212121;
 }
@@ -28,4 +27,6 @@
 .label{
   color: #212121;
   font-weight: 500;
+  margin-bottom: 0.5em;
+  display: inline-block;
 }

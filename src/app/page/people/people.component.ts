@@ -16,16 +16,17 @@ export class PeopleComponent implements OnInit {
   filter = new FormControl('');
   dataSource!: MatTableDataSource<People>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private readonly peopleService: PeopleService) { }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void {;
   }
 
-  public openDialog(data?: People){
-    const dialogRef = this.dialog.open(PeopleFormComponent, {
-      data: data
-    })
+  public openDialog(){
+    this.peopleService.openDialog().subscribe(result =>{
+      if(result){
+        this.peopleService.create(result);
+      }
+    });
   }
 
 }

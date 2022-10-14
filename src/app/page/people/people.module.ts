@@ -1,7 +1,7 @@
 import { PeopleService } from './people.service';
 import { InputModule } from './../../shared/components/input/input.module';
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { CommonModule, DatePipe, registerLocaleData } from '@angular/common';
 import { PeopleComponent } from './people.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +35,8 @@ registerLocaleData(localePt, 'pt');
     PeopleService,
     {
       provide: LOCALE_ID, useValue: "pt"
-    }
+    },
+    DatePipe
   ]
 })
 export class PeopleModule { }
