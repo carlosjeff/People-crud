@@ -1,27 +1,68 @@
-# PeopleCrud
+# People CRUD
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Projeto proposto para demostrar o conhecimento em Angular construído uma aplicação de cadastro de pessoas.
 
-## Development server
+Deploy: https://carlosjeff.github.io/People-crud/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Começando
 
-## Code scaffolding
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pré-requisitos
 
-## Build
+* NPM
+* Node
+* [Api People-CRUD](https://github.com/carlosjeff/people-crud-api)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Instalação
 
-## Running unit tests
+Clone este repositório usando o comando:
+```bash
+git clone https://github.com/carlosjeff/Tarefas.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+Na pasta do projeto instale as dependências com uso do npm
+```bash
+npm install
 
-## Running end-to-end tests
+```
+Na arquivo [src/environments/environment.ts](https://github.com/carlosjeff/People-crud/blob/main/src/environments/environment.ts) edite o URL da Api
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'URL da Api'
+};
+```
+Para iniciar o servidor é só usar o comando na pasta do projeto
+```bash
+npm run start
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+## Construído com
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* [Angular](https://angular.io/) - Framework JavaScript
+* [Angular Material](https://angular.io/) - Material Design components for Angular
+
+## Telas
+
+### Layout web
+
+![Web 1](https://github.com/carlosjeff/assets/blob/main/People-crud/web%2001.png)
+
+![Web 2](https://github.com/carlosjeff/assets/blob/main/People-crud/web%2002.png)
+
+### Layout mobile
+
+![Mobile 1](https://github.com/carlosjeff/assets/blob/main/People-crud/mobile01.png)
+
+![Mobile 2](https://github.com/carlosjeff/assets/blob/main/People-crud/mobile02.png)
+
+## Autor
+
+* **Carlos Jefferson Braga Alves** - [LinkedIn ](https://www.linkedin.com/in/carlosjeff/)
+
+
+## Licença
+
+Este projeto está sob a licença MIT License - veja o arquivo [LICENSE.md](https://github.com/carlosjeff/People-crud/blob/main/LICENSE) para detalhes.
