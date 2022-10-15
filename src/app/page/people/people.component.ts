@@ -13,8 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PeopleComponent implements OnInit {
 
-  filter = new FormControl('');
-  dataSource!: MatTableDataSource<People>;
+  public filter = new FormControl('');
 
   constructor(private readonly peopleService: PeopleService) { }
 

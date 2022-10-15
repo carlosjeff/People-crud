@@ -5,7 +5,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <div mat-dialog-content class="people-form__content">
+  <div class="people-form__content">
     <form class="content__form" [formGroup]="peopleForm">
       <app-input class="content__input" formControlName="name" id="name"
         labelName="Nome" placeholder="Nome" [control]="peopleForm.get('name')"></app-input>

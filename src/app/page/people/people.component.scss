@@ -22,3 +22,25 @@
   background-color: #fafafa;
   border-radius: 10px;
 }
+
+
+@media only screen
+   and (max-width : 768px) {
+    .people{
+      margin: 1em;
+    }
+
+    .people__header{
+      flex-direction: column;
+    }
+
+    .button{
+      width: 100%;
+    }
+}
+
+@media only screen and (max-width : 1200px) {
+  .people{
+    margin: 1em 2em;
+  }
+}

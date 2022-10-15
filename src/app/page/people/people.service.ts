@@ -7,9 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PeopleFormComponent } from './people-form/people-form.component';
 import { delay, map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PeopleService {
 
   private peopleSubject = new BehaviorSubject<Array<People>>([])
@@ -49,8 +47,8 @@ export class PeopleService {
   public openDialog(data?: People): Observable<People | null>{
     const dialogRef = this.dialog.open(PeopleFormComponent, {
       data: data,
-      minWidth: '500px',
-      autoFocus: 'input'
+      width: '500px',
+      autoFocus: 'input',
     });
 
     return dialogRef.afterClosed();
@@ -60,7 +58,7 @@ export class PeopleService {
   public confirmDialog(): Observable<boolean>{
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      minWidth: '550px'
+      width: "550px",
     });
 
     return dialogRef.afterClosed();

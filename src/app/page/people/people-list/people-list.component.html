@@ -1,46 +1,46 @@
 <div class="people-list">
 
-  <table mat-table class="people-list__table" [dataSource]="dataSource" matSort>
+  <mat-table class="people-list__table" [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id" > {{row.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="name" > {{row.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="email">{{row.email}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="birthDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de nascimento </th>
-      <td mat-cell *matCellDef="let row"> {{row.birthDate | date}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Data de nascimento </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="data de nascimento">{{row.birthDate | date}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let row" class="table__actions">
+      <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+      <mat-cell *matCellDef="let row" class="table__actions" data-label="">
         <button class="button button-icon button-icon--blue" matTooltip="Editar" (click)="edit(row)">
           <mat-icon class="icon">edit</mat-icon>
         </button>
         <button class="button button-icon button-icon--red"  matTooltip="Deletar" (click)="delete(row.id)">
           <mat-icon class="icon">delete</mat-icon>
         </button>
-      </td>
+      </mat-cell>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter ""</td>
+    <tr class="table__no-result" *matNoDataRow>
+      <td colspan="5">Não foi encontrado nenhum registro{{filter.value ? ' corresponde a "' + filter.value+ '"'  : '!' }}</td>
     </tr>
-  </table>
+  </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page of users"></mat-paginator>
 </div>

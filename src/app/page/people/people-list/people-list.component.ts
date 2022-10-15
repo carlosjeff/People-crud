@@ -15,8 +15,8 @@ export class PeopleListComponent implements OnInit  {
 
   @Input() filter!: FormControl;
 
-  displayedColumns: string[] = ['id','name','email','birthDate','actions'];
-  dataSource!: MatTableDataSource<People>;
+  public displayedColumns: string[] = ['id','name','email','birthDate','actions'];
+  public dataSource!: MatTableDataSource<People>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
   @ViewChild(MatSort) sort!: MatSort;

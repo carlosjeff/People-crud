@@ -2,7 +2,6 @@
   padding: 1em;
   box-sizing: border-box;
   // box-shadow:  4px 4px 22px -1px rgba(0,0,0,0.59);
-
 }
 
 .people-list__table{
@@ -14,4 +13,50 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0.5em 0;
+}
+
+.mat-column-id{
+  max-width: 40px;
+}
+
+.mat-column-actions{
+  max-width: 80px;
+  padding: 0;
+}
+
+.mat-cell, .mat-header-cell{
+  justify-content: center;
+}
+
+.mat-cell{
+  text-align: center;
+  word-break: break-word;
+}
+
+.table__no-result{
+  display: flex;
+  justify-content: center;
+  word-break: break-word;
+}
+
+
+@media only screen and (max-width : 768px){
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    padding: 0.5em;
+  }
+
+  .mat-cell:first-of-type{
+    padding-left: 0;
+  }
 }
