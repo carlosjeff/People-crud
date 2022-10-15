@@ -25,10 +25,10 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td mat-cell *matCellDef="let row" class="table__actions">
-        <button class="button button-icon button-icon--blue" (click)="edit(row)">
+        <button class="button button-icon button-icon--blue" matTooltip="Editar" (click)="edit(row)">
           <mat-icon class="icon">edit</mat-icon>
         </button>
-        <button class="button button-icon button-icon--red" (click)="delete(row.id)">
+        <button class="button button-icon button-icon--red"  matTooltip="Deletar" (click)="delete(row.id)">
           <mat-icon class="icon">delete</mat-icon>
         </button>
       </td>

@@ -13,6 +13,7 @@ import {MatSortModule} from '@angular/material/sort';
 import localePt from '@angular/common/locales/pt';
 import { PeopleFormComponent } from './people-form/people-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 registerLocaleData(localePt, 'pt');
 
@@ -31,7 +32,8 @@ registerLocaleData(localePt, 'pt');
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    MatTooltipModule
   ],
   providers: [
     PeopleService,

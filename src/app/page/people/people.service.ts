@@ -1,10 +1,11 @@
 import { ConfirmDialogComponent } from './../../shared/components/confirm-dialog/confirm-dialog.component';
 import { People } from './../../shared/models/people.model';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
 import { DataService } from './../../shared/services/data.service';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PeopleFormComponent } from './people-form/people-form.component';
+import { delay, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -59,10 +60,16 @@ export class PeopleService {
   public confirmDialog(): Observable<boolean>{
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      minWidth: '500px'
+      minWidth: '550px'
     });
 
     return dialogRef.afterClosed();
-
   }
+
+  public emailExists(email: string): Observable<boolean>{
+     return of(this.peopleSubject.getValue().some(item => item.email.toLowerCase() == email.toLowerCase()));
+  }
+
+
+
 }

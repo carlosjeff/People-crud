@@ -12,6 +12,18 @@
   color: #212121;
 }
 
+.input--error{
+  border-color: #EF4444 !important;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s, box-shadow 0.5s;
+  &:hover{
+    border-color: #EF4444 !important;
+  }
+
+  &::placeholder{
+    color: #EF4444;
+  }
+}
+
 .input:focus-visible{
   outline: 0 none;
   outline-offset: 0;
@@ -29,4 +41,10 @@
   font-weight: 500;
   margin-bottom: 0.5em;
   display: inline-block;
+}
+
+.error{
+  color: #EF4444;
+  transition:all 0.5s;
+  font-size: .85rem;
 }

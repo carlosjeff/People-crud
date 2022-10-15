@@ -1,4 +1,4 @@
-import { Component, EventEmitter, forwardRef, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnChanges, Output, SimpleChanges, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -13,13 +13,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor   {
+export class InputComponent implements ControlValueAccessor {
 
   @Input() labelName!: string;
   @Input() placeholder: string = '';
   @Input() id: string = '';
   @Input() isReadOnly = false;
-  @Input() type: string = 'text'
+  @Input() type: string = 'text';
+  @Input() control: any;
+  @Input() max: string = '';
 
   @Output() change = new EventEmitter<boolean>();
 

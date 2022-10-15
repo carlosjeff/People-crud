@@ -1,3 +1,5 @@
+import { PeopleService } from './../people.service';
+import { ValidatorCustom } from './../../../shared/Validators/validator-custom';
 import { People } from './../../../shared/models/people.model';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -13,11 +15,11 @@ export class PeopleFormComponent implements OnInit {
 
   public peopleForm!: FormGroup;
 
-
   constructor(public dialogRef: MatDialogRef<PeopleFormComponent>,
               @Inject(MAT_DIALOG_DATA) public data: People,
               private formBuilder: FormBuilder,
-              private datePipe: DatePipe) { }
+              private datePipe: DatePipe,
+              private peopleService: PeopleService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -26,8 +28,13 @@ export class PeopleFormComponent implements OnInit {
       if(this.data){
         const date = this.datePipe.transform(this.data.birthDate, 'yyyy-MM-dd')
         this.peopleForm.patchValue({...this.data, birthDate: date });
+      }else{
+        this.peopleForm.get('email')?.setAsyncValidators(ValidatorCustom.emailExistsValidator(this.peopleService))
+        this.peopleForm.get('email')?.updateValueAndValidity();
       }
     })
+
+
   }
 
   public save(){
@@ -38,9 +45,18 @@ export class PeopleFormComponent implements OnInit {
     this.peopleForm = this.formBuilder.group({
       id: [0],
       name: ['', Validators.required],
-      email: ['', Validators.email],
-      birthDate: ['']
+      email: ['',[Validators.email,
+        Validators.required,
+        Validators.pattern(/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/)]
+       ],
+      birthDate: ['',[Validators.required, ValidatorCustom.maxDateValidator]]
     })
+  }
+
+
+
+  public get currentDate(){
+    return this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 
 }

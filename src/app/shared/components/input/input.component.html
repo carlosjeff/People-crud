@@ -1,6 +1,18 @@
 <div class="input-container">
   <label [attr.for]="id" class="label"> {{ labelName }}</label>
-  <input [type]="type" class="input" [id]="id"
+  <input [type]="type" class="input" [ngClass]="{'input--error': !!control?.errors && !control?.pristine}" [id]="id"
     [readonly]="isReadOnly" [(ngModel)]="value"
-    [placeholder]="placeholder">
+    [placeholder]="placeholder" [attr.max]="max">
+    <span class="error" *ngIf="!!control?.errors?.required && !control?.pristine">O campo {{labelName}} é obrigatorio!</span>
+    <span class="error"
+      *ngIf="(!!control?.errors?.email || !!control?.errors?.pattern) && !control?.pristine">
+      O email informado não é valido!
+    </span>
+    <span class="error"
+      *ngIf="!!control?.hasError('emailExists') && !control?.pristine">
+      O email informado já existe!
+    </span>
+    <span class="error" *ngIf="!!control?.errors?.maxDate && !control?.pristine">A data informada é maior que a data atual!</span>
 </div>
+
+
